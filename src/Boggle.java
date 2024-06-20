@@ -8,17 +8,15 @@ public class Boggle {
         this.list = list;
     }
 
+    //prints a 2 dimensional array
     public void printBoggle (String[][] array){ // prints the 16 letter randomized array
-//        for (int r = 0; r < array.length; r++){
-//            for (int c = 0; c < array[r].length; c++){
-//                System.out.print(array[r][c]);
-//            }
-//        }
+//
         System.out.print(array[0][0] + "  " + array[0][1] +  "  " + array[0][2] +  "  " + array[0][3] + "\n");
         System.out.print(array[1][0] +  "  " + array[1][1] +  "  " + array[1][2] +  "  " + array[1][3] + "\n");
         System.out.print(array[2][0] +  "  " + array[2][1] +  "  " + array[2][2] +  "  " + array[2][3] + "\n");
         System.out.print(array[3][0] +  "  " + array[3][1] +  "  " + array[3][2] +  "  " + array[3][3] + "\n");
     }
+    //creates a random array of letters from the arraylist
     public String[][] randomize (){ // randomizes (or boggles) the array
         array = new String[4][4];
         for (int r = 0; r < array.length; r++) {
@@ -26,8 +24,8 @@ public class Boggle {
                 array[r][c] = (letters((int)(Math.random() * 26)));
             }
         }
-        for (int r = 0; r < array.length; r++) {
-            for (int c = 0; c < array[r].length; c++) {
+        for (int r = array.length - 1; r >= 0; r--) {
+            for (int c = array[r].length - 1; c >= 0; c--) {
                 if (((int) (Math.random() * 26)) <= 3) {
                     array[r][c] = "E";
                 }
@@ -43,6 +41,7 @@ public class Boggle {
 
         return array;
     }
+    //creates an arraylist of every letter in the alphabet
     public String letters (int i) {// letters to use for the random array
         list = new ArrayList<String>();
         list.add("A");
